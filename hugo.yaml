@@ -1,0 +1,8 @@
+baseURL: https://example.org/
+languageCode: en-us
+title: Tanji's Blog
+theme: "PaperMod"
+params:
+  # defaultTheme: light
+  # defaultTheme: dark
+  defaultTheme: dark # to switch between dark or light according to browser theme
