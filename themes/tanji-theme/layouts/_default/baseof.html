@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}" class="{{ if eq .Site.Params.defaultTheme "dark" }}dark{{ end }}">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  {{ partial "head.html" . }}
+</head>
+<body class="flex flex-col min-h-screen transition-colors">
+  {{ partial "header.html" . }}
+  
+  <main class="flex-grow">
+    <div class="container py-6 sm:py-8">
+      <div class="flex flex-col md:flex-row gap-8">
+        <div class="{{ if .IsHome }}w-full{{ else }}w-full md:w-3/4{{ end }}">
+          {{ block "main" . }}{{ end }}
+        </div>
+        
+        {{ if not .IsHome }}
+        <aside class="w-full md:w-1/4 md:block {{ if .IsPage }}hidden sm:block{{ end }}">
+          {{ partial "sidebar.html" . }}
+        </aside>
+        {{ end }}
+      </div>
+    </div>
+  </main>
+  
+  {{ partial "footer.html" . }}
+  
+  <!-- Local JS files -->
+  {{ $mainJs := resources.Get "js/main.js" | resources.Minify | resources.Fingerprint }}
+  <script src="{{ $mainJs.RelPermalink }}" integrity="{{ $mainJs.Data.Integrity }}"></script>
+  
+  {{ if .Site.Params.enableDarkMode }}
+  {{ $darkModeJs := resources.Get "js/darkMode.js" | resources.Minify | resources.Fingerprint }}
+  <script src="{{ $darkModeJs.RelPermalink }}" integrity="{{ $darkModeJs.Data.Integrity }}"></script>
+  {{ end }}
+  
+  {{ if .Site.Params.enableCodeCopy }}
+  {{ $codeHighlightJs := resources.Get "js/codeHighlight.js" | resources.Minify | resources.Fingerprint }}
+  <script src="{{ $codeHighlightJs.RelPermalink }}" integrity="{{ $codeHighlightJs.Data.Integrity }}"></script>
+  {{ end }}
+</body>
+</html>

@@ -1,0 +1,29 @@
+{{ if or .Paginator.HasPrev .Paginator.HasNext }}
+<div class="flex justify-between items-center mt-10 pt-10 border-t border-gray-200 dark:border-gray-700">
+  {{ if .Paginator.HasPrev }}
+  <a href="{{ .Paginator.Prev.URL }}" class="btn btn-secondary">
+    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="<http://www.w3.org/2000/svg>">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    </svg>
+    Newer Posts
+  </a>
+  {{ else }}
+  <div></div>
+  {{ end }}
+
+  <span class="text-sm text-gray-600 dark:text-gray-400">
+    Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}
+  </span>
+
+  {{ if .Paginator.HasNext }}
+  <a href="{{ .Paginator.Next.URL }}" class="btn btn-secondary">
+    Older Posts
+    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="<http://www.w3.org/2000/svg>">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+    </svg>
+  </a>
+  {{ else }}
+  <div></div>
+  {{ end }}
+</div>
+{{ end }}

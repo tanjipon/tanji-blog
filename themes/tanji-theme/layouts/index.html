@@ -1,0 +1,45 @@
+{{ define "main" }}
+<!-- Hero Section -->
+<section class="py-12 md:py-20">
+  <div class="text-center mb-12">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ .Title }}</h1>
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">{{ .Site.Params.description }}</p>
+  </div>
+  <!-- Author Card with Avatar and Social Links -->
+  {{ partial "author-section.html" . }}
+  
+  {{ .Content }}
+</section>
+
+<!-- Featured Posts -->
+{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+<section class="mb-16">
+  <h2 class="text-2xl font-bold mb-8">Latest Articles</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {{ $postLimit := default 6 .Site.Params.showPostsOnHomepage }}
+    {{ range first $postLimit $paginator.Pages }}
+      {{ partial "post-card.html" . }}
+    {{ end }}
+  </div>
+
+  <div class="mt-10 text-center">
+    <a href="/posts/" class="btn btn-primary">View All Posts</a>
+  </div>
+</section>
+
+<!-- Categories Section -->
+{{ if (gt (len .Site.Taxonomies.categories) 0) }}
+<section class="mb-16">
+  <h2 class="text-2xl font-bold mb-8">Browse by Category</h2>
+
+  <div class="flex flex-wrap gap-4">
+    {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+    <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}" class="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-primary-100 hover:text-primary-800 dark:hover:bg-primary-900 dark:hover:text-primary-100 transition-colors">
+      {{ $name }} ({{ $taxonomy.Count }})
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+{{ end }}

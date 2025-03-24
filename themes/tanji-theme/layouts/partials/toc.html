@@ -1,0 +1,8 @@
+{{ if and (.Params.toc) (ne .TableOfContents "<nav id=\"TableOfContents\"></nav>") }}
+<div class="toc mb-8">
+  <h2 class="text-lg font-bold mb-3">Table of Contents</h2>
+  <div class="toc-list">
+    {{ .TableOfContents }}
+  </div>
+</div>
+{{ end }}

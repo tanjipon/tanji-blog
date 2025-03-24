@@ -1,0 +1,24 @@
+name: tanji-theme
+license: MIT
+licenselink: <https://github.com/tanjipon/tanji-blog>
+description: A modern Hugo theme for tech blogs with Tailwind CSS integration
+homepage: <https://github.com/tanjipon>
+tags:
+  - blog
+  - responsive
+  - tech
+  - tailwind
+  - dark mode
+  - modern
+features:
+  - responsive
+  - tailwind css
+  - dark mode
+  - syntax highlighting
+  - toc
+  - code copy
+  - mobile-first
+min_version: 1.0.0
+author:
+  name: tanji
+  homepage: https://blog.tanji.io

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main background -->
+  <rect width="1200" height="400" fill="url(#headerGradient)" />
+  
+  <!-- Decorative elements -->
+  <circle cx="200" cy="100" r="50" fill="white" opacity="0.1" />
+  <circle cx="1000" cy="300" r="70" fill="white" opacity="0.1" />
+  
+  <!-- Abstract code patterns -->
+  <g opacity="0.2" fill="none" stroke="white" stroke-width="2">
+    <!-- Brackets and parentheses -->
+    <path d="M100,100 L150,100 L150,300 L100,300" />
+    <path d="M1100,100 L1050,100 L1050,300 L1100,300" />
+    
+    <!-- Code-like lines -->
+    <line x1="250" y1="150" x2="500" y2="150" />
+    <line x1="250" y1="200" x2="450" y2="200" />
+    <line x1="250" y1="250" x2="480" y2="250" />
+    
+    <line x1="700" y1="150" x2="950" y2="150" />
+    <line x1="700" y1="200" x2="900" y2="200" />
+    <line x1="700" y1="250" x2="920" y2="250" />
+  </g>
+  
+  <!-- Tech icons -->
+  <!-- Code symbol -->
+  <path d="M300,320 L250,280 L300,240 M400,320 L450,280 L400,240" fill="none" stroke="white" stroke-width="4" />
+  
+  <!-- Simplified circuit pattern -->
+  <path d="M600,300 C650,300 650,250 700,250 C750,250 750,300 800,300 C850,300 850,250 900,250" fill="none" stroke="white" stroke-width="3" />
+  
+  <!-- Central heading text (placeholder) -->
+  <text x="600" y="180" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="white">About Me</text>
+  <text x="600" y="220" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="white">Software Engineer & Tech Enthusiast</text>
+</svg>

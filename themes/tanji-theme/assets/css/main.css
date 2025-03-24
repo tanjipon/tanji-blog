@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Custom base styles */
+  body {
+    @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  /* Smooth transition for dark mode */
+  .transition-colors {
+    @apply transition-all duration-200;
+  }
+
+  /* Better mobile reading experience */
+  @media (max-width: 640px) {
+    html {
+      font-size: 18px; /* Larger base font size for mobile */
+    }
+
+    p, li {
+      @apply leading-relaxed; /* Increased line height for readability */
+    }
+
+    pre {
+      @apply text-sm; /* Slightly smaller code blocks on mobile to prevent overflow */
+    }
+  }
+}
+
+@layer components {
+  /* Custom component styles */
+  .container {
+    @apply px-4 mx-auto max-w-6xl;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-md font-medium transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 dark:bg-primary-700 dark:hover:bg-primary-600;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-colors;
+  }
+
+  .nav-link {
+    @apply px-3 py-2 text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 font-medium transition-colors;
+  }
+
+  .nav-link-active {
+    @apply text-primary-600 dark:text-primary-400 font-semibold;
+  }
+
+  /* Table of contents */
+  .toc {
+    @apply bg-gray-50 dark:bg-gray-800 p-4 rounded-lg my-6;
+  }
+
+  .toc-list {
+    @apply space-y-2 list-none;
+  }
+
+  .toc-link {
+    @apply text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors;
+  }
+
+  /* Mobile-optimized components */
+  @media (max-width: 640px) {
+    .card {
+      @apply shadow-sm; /* Lighter shadow on mobile */
+    }
+
+    .btn {
+      @apply w-full justify-center my-1; /* Full-width buttons on mobile */
+    }
+
+    .post-content img {
+      @apply my-6; /* More space around images on mobile */
+    }
+  }
+
+  /* Code blocks */
+  .code-header {
+    @apply flex justify-between items-center bg-gray-800 text-gray-200 py-2 px-4 text-sm rounded-t-lg;
+  }
+
+  .copy-button {
+    @apply p-1 text-gray-400 hover:text-white transition-colors;
+  }
+
+  /* Sidebar widget */
+  .sidebar-widget {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 mb-6;
+  }
+
+  .sidebar-widget-title {
+    @apply text-lg font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-700;
+  }
+
+  /* Mobile optimized reading view */
+  .mobile-readable {
+    @apply max-w-prose mx-auto px-4 sm:px-0; /* Constrained width for better reading */
+  }
+}
+
+@layer utilities {
+  /* Custom utility styles */
+}

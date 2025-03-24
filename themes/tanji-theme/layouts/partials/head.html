@@ -1,0 +1,93 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Local Fonts -->
+<style>
+  /* Inter font */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/inter-v12-latin-regular.woff2') format('woff2'),
+         url('/fonts/inter-v12-latin-regular.woff') format('woff');
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('/fonts/inter-v12-latin-500.woff2') format('woff2'),
+         url('/fonts/inter-v12-latin-500.woff') format('woff');
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('/fonts/inter-v12-latin-600.woff2') format('woff2'),
+         url('/fonts/inter-v12-latin-600.woff') format('woff');
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/fonts/inter-v12-latin-700.woff2') format('woff2'),
+         url('/fonts/inter-v12-latin-700.woff') format('woff');
+  }
+</style>
+
+<!-- Tailwind CSS -->
+{{ $css := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+
+<!-- Dark mode script -->
+{{ if .Site.Params.enableDarkMode }}
+<script>
+  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+</script>
+{{ end }}
+
+<!-- Mobile web app capability -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+
+<!-- RSS -->
+{{ range .AlternativeOutputFormats -}}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+{{ end -}}
+
+<!-- Open Graph -->
+{{ template "_internal/opengraph.html" . }}
+
+<!-- Twitter Cards -->
+{{ template "_internal/twitter_cards.html" . }}
+
+<!-- Schema.org structured data -->
+{{ partial "schema.html" . }}
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- Mobile theme color -->
+<meta name="theme-color" content="#0ea5e9">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#075985">

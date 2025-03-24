@@ -1,0 +1,91 @@
+baseURL: "https://localhost:1313"
+languageCode: "en-us"
+title: "TechByte Blog"
+theme: "tanji-theme"
+
+# Site parameters
+params:
+  # Basic site configuration
+  description: "A modern tech blog about programming, web development, and technology"
+  author: "tanji"
+  authorBio: "Software engineer passionate about web development, cloud technologies, and open source. I write about modern tech stacks and share tutorials to help fellow developers."
+  authorImage: "/images/author.svg"
+  authorTwitter: "@yourusername"
+  defaultImage: "/images/default-cover.jpg"
+  
+  # Layout settings
+  showAuthorOnPosts: true
+  showBreadcrumbs: true
+  showPostsOnHomepage: 6
+  showShareButtons: true
+  showRelatedPosts: true
+  showTableOfContents: true
+  
+  # Main content sections
+  mainSections:
+    - posts
+  
+  # Features
+  enableCodeCopy: true
+  enableDarkMode: true
+  defaultTheme: "dark" # "light", "dark", or "system"
+  
+  # Social links
+  social:
+    # twitter: "yourusername"
+    github: "tanjipon"
+    # linkedin: "yourusername"
+    # youtube: "yourchannel"
+    # instagram: "yourusername"
+    # facebook: "yourusername"
+    # email: "you@example.com"
+    website: "https://blog.tanji.io"
+
+# Menu configuration
+menu:
+  main:
+    - identifier: "home"
+      name: "Home"
+      url: "/"
+      weight: 10
+    - identifier: "posts"
+      name: "Posts"
+      url: "/posts/"
+      weight: 20
+    - identifier: "categories"
+      name: "Categories"
+      url: "/categories/"
+      weight: 30
+    - identifier: "tags"
+      name: "Tags"
+      url: "/tags/"
+      weight: 40
+    - identifier: "about"
+      name: "About"
+      url: "/about/"
+      weight: 50
+    
+# Pagination
+paginate: 9
+paginatePath: "page"
+
+# Taxonomy settings
+taxonomies:
+  category: "categories"
+  tag: "tags"
+  series: "series"
+
+# Syntax highlighting
+markup:
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    noClasses: false
+    style: monokai
+    tabWidth: 2
