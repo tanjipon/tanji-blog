@@ -26,6 +26,7 @@ params:
     - posts
   
   # Features
+  enableCert: true
   enableCodeCopy: true
   enableDarkMode: true
   defaultTheme: "dark" # "light", "dark", or "system"
@@ -60,10 +61,14 @@ menu:
       name: "Tags"
       url: "/tags/"
       weight: 40
+    - identifier: "certificates"
+      name: "Certifications"
+      url: "/certificates/"
+      weight: 50      
     - identifier: "about"
       name: "About"
       url: "/about/"
-      weight: 50
+      weight: 60
     
 # Pagination
 paginate: 9

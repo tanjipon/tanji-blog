@@ -38,5 +38,10 @@
   {{ $codeHighlightJs := resources.Get "js/codeHighlight.js" | resources.Minify | resources.Fingerprint }}
   <script src="{{ $codeHighlightJs.RelPermalink }}" integrity="{{ $codeHighlightJs.Data.Integrity }}"></script>
   {{ end }}
+
+  {{ if .Site.Params.enableCert }}
+  {{ $certJs := resources.Get "js/certificates.js" | resources.Minify | resources.Fingerprint }}
+  <script src="{{ $certJs.RelPermalink }}" integrity="{{ $certJs.Data.Integrity }}"></script>
+  {{ end }}
 </body>
 </html>
