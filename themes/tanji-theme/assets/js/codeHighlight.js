@@ -1,70 +1,78 @@
 /**
- * Code syntax highlighting and copy functionality for TechByte Hugo theme
+ * Enhanced code block styling and copy functionality for Tanji Hugo theme
  */
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all the code blocks
-    const codeBlocks = document.querySelectorAll('pre code');
+    // Select all code blocks
+    const codeBlocks = document.querySelectorAll('pre > code');
     
-    if (codeBlocks.length > 0) {
+    if (codeBlocks.length) {
       // Process each code block
       codeBlocks.forEach((codeBlock, index) => {
-        // Get the parent pre element
+        // Get the parent pre element and add necessary styling
         const preElement = codeBlock.parentElement;
         
-        // Find the language class if it exists
+        // Create a wrapper div to position everything properly
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+        
+        // Insert the wrapper before the pre element
+        preElement.parentNode.insertBefore(wrapper, preElement);
+        
+        // Move the pre element inside the wrapper
+        wrapper.appendChild(preElement);
+        
+        // Extract language if available
         let language = '';
-        Array.from(codeBlock.classList).forEach(className => {
+        for (const className of codeBlock.classList) {
           if (className.startsWith('language-')) {
             language = className.replace('language-', '');
+            break;
           }
-        });
+        }
         
-        // Create a header div for the code block
-        const codeHeader = document.createElement('div');
-        codeHeader.className = 'code-header';
+        // Create a toolbar div
+        const toolbar = document.createElement('div');
+        toolbar.className = 'code-toolbar';
         
-        // Add language badge if a language is detected
+        // Add language badge if language is available
         if (language) {
           const languageBadge = document.createElement('span');
+          languageBadge.className = 'code-language';
           languageBadge.textContent = language;
-          languageBadge.className = 'text-xs font-mono';
-          codeHeader.appendChild(languageBadge);
+          toolbar.appendChild(languageBadge);
         }
         
         // Create copy button
         const copyButton = document.createElement('button');
+        copyButton.className = 'code-copy-btn';
+        copyButton.setAttribute('aria-label', 'Copy code to clipboard');
+        copyButton.setAttribute('title', 'Copy code to clipboard');
         copyButton.innerHTML = `
-          <svg class="copy-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+          <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
           </svg>
-          <svg class="check-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          <svg class="check-icon hidden" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
         `;
-        copyButton.className = 'copy-button';
-        copyButton.title = 'Copy code';
-        copyButton.setAttribute('aria-label', 'Copy code');
-        codeHeader.appendChild(copyButton);
         
-        // Add a unique ID to each code block for reference
+        // Add the copy button to the toolbar
+        toolbar.appendChild(copyButton);
+        
+        // Add the toolbar to the wrapper
+        wrapper.insertBefore(toolbar, preElement);
+        
+        // Add a unique ID to the code block
         const codeId = `code-block-${index}`;
         codeBlock.id = codeId;
         
-        // Insert the header before the pre element
-        preElement.parentNode.insertBefore(codeHeader, preElement);
-        
-        // Style the pre element to connect with the header
-        preElement.style.borderTopLeftRadius = '0';
-        preElement.style.borderTopRightRadius = '0';
-        preElement.style.marginTop = '0';
-        
         // Add copy functionality
-        copyButton.addEventListener('click', () => {
-          // Get the text content of the code block
+        copyButton.addEventListener('click', function() {
           const code = codeBlock.textContent;
           
-          // Copy to clipboard
-          navigator.clipboard.writeText(code).then(() => {
+          // Use the Clipboard API to copy text
+          navigator.clipboard.writeText(code).then(function() {
             // Show success state
             const copyIcon = copyButton.querySelector('.copy-icon');
             const checkIcon = copyButton.querySelector('.check-icon');
@@ -73,50 +81,69 @@ document.addEventListener('DOMContentLoaded', function() {
             checkIcon.classList.remove('hidden');
             
             // Reset after 2 seconds
-            setTimeout(() => {
+            setTimeout(function() {
               copyIcon.classList.remove('hidden');
               checkIcon.classList.add('hidden');
             }, 2000);
-          }).catch(err => {
-            console.error('Failed to copy code: ', err);
-            // Fallback for browsers that don't support clipboard API
+            
+          }).catch(function(err) {
+            console.error('Could not copy text: ', err);
+            
+            // Fallback for browsers that don't support Clipboard API
             const textArea = document.createElement('textarea');
             textArea.value = code;
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
             document.body.appendChild(textArea);
             textArea.select();
-            document.execCommand('copy');
+            
+            try {
+              document.execCommand('copy');
+              
+              // Show success state
+              const copyIcon = copyButton.querySelector('.copy-icon');
+              const checkIcon = copyButton.querySelector('.check-icon');
+              
+              copyIcon.classList.add('hidden');
+              checkIcon.classList.remove('hidden');
+              
+              // Reset after 2 seconds
+              setTimeout(function() {
+                copyIcon.classList.remove('hidden');
+                checkIcon.classList.add('hidden');
+              }, 2000);
+              
+            } catch (err) {
+              console.error('Fallback: Could not copy text: ', err);
+            }
+            
             document.body.removeChild(textArea);
           });
         });
+        
+        // Add line numbers if enabled
+        if (document.body.classList.contains('line-numbers')) {
+          addLineNumbers(codeBlock);
+        }
       });
     }
     
-    // Add line numbers to code blocks if enabled
-    const addLineNumbers = () => {
-      document.querySelectorAll('pre > code').forEach(codeBlock => {
-        if (!codeBlock.classList.contains('no-line-numbers')) {
-          const lineNumbersWrapper = document.createElement('div');
-          lineNumbersWrapper.className = 'line-numbers-wrapper';
-          
-          const code = codeBlock.innerHTML.split('\n');
-          const lineNumbers = document.createElement('div');
-          lineNumbers.className = 'line-numbers';
-          
-          code.forEach((_, i) => {
-            const span = document.createElement('span');
-            span.innerText = i + 1;
-            lineNumbers.appendChild(span);
-          });
-          
-          lineNumbersWrapper.appendChild(lineNumbers);
-          codeBlock.parentNode.insertBefore(lineNumbersWrapper, codeBlock);
+    // Function to add line numbers
+    function addLineNumbers(codeBlock) {
+      const code = codeBlock.textContent.split('\n');
+      const lineNumbers = document.createElement('div');
+      lineNumbers.className = 'line-numbers';
+      
+      code.forEach((_, i) => {
+        if (i < code.length - 1 || code[i]) { // Skip empty last line
+          const lineNumber = document.createElement('span');
+          lineNumber.textContent = i + 1;
+          lineNumbers.appendChild(lineNumber);
         }
       });
-    };
-    
-    // Check if line numbers are enabled in the site configuration
-    // This would be implemented based on the markup.highlight.lineNos setting
-    if (document.body.classList.contains('line-numbers')) {
-      addLineNumbers();
+      
+      const wrapper = codeBlock.closest('.code-block-wrapper');
+      wrapper.classList.add('has-line-numbers');
+      wrapper.insertBefore(lineNumbers, wrapper.firstChild);
     }
   });

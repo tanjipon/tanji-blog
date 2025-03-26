@@ -91,13 +91,113 @@
     }
   }
 
-  /* Code blocks */
-  .code-header {
-    @apply flex justify-between items-center bg-gray-800 text-gray-200 py-2 px-4 text-sm rounded-t-lg;
+  /* Code block styling */
+  .code-block-wrapper {
+    position: relative;
+    margin: 1.5rem 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
-  .copy-button {
-    @apply p-1 text-gray-400 hover:text-white transition-colors;
+  .code-block-wrapper pre {
+    margin: 0;
+    padding: 1rem;
+    border-radius: 0 0 .375rem .375rem;
+    overflow-x: auto;
+    background-color: #1f2937 !important; /* Dark gray background */
+    color: #f3f4f6; /* Light text */
+  }
+
+  .code-block-wrapper pre code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  /* Code block toolbar */
+  .code-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #111827; /* Darker than the code block */
+    color: #e5e7eb;
+    font-size: 0.875rem;
+  }
+
+  /* Language badge */
+  .code-language {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.75rem;
+    color: #d1d5db;
+  }
+
+  /* Copy button */
+  .code-copy-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    background-color: #374151; /* Medium gray */
+    border: none;
+    border-radius: 0.25rem;
+    color: #e5e7eb;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .code-copy-btn:hover {
+    background-color: #4b5563; /* Lighter gray on hover */
+  }
+
+  .code-copy-btn:focus {
+    outline: 2px solid #3b82f6; /* Blue focus ring */
+    outline-offset: 2px;
+  }
+
+  /* Hide the check icon by default */
+  .hidden {
+    display: none;
+  }
+
+  /* Line numbers styling */
+  .has-line-numbers {
+    display: flex;
+  }
+
+  .line-numbers {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+    background-color: #111827; /* Same as toolbar */
+    color: #9ca3af; /* Muted gray */
+    text-align: right;
+    user-select: none;
+  }
+
+  .line-numbers span {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    padding-right: 0.5rem;
+  }
+
+  /* Dark mode compatibility */
+  .dark .code-block-wrapper pre {
+    background-color: #1f2937 !important; /* Darker background in dark mode */
+  }
+  .dark .code-toolbar {
+    background-color: #030712; /* Even darker for the toolbar */
+  }
+  .dark .code-copy-btn {
+    background-color: #1f2937; /* Adjusted for dark mode */
+  }
+  .dark .code-copy-btn {
+    background-color: #374151; /* Lighter on hover for dark mode */
+  }
+  .dark .line-numbers {
+    background-color: #030712; /* Same as toolbar in dark mode */
   }
 
   /* Sidebar widget */

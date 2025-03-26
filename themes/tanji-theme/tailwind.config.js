@@ -3,6 +3,17 @@ module.exports = {
       "./layouts/**/*.html",
       "./content/**/*.{html,md}",
     ],
+    safelist: [
+      'code-block-wrapper',
+      'code-toolbar',
+      'code-language',
+      'code-copy-btn',
+      'copy-icon',
+      'check-icon',
+      'hidden',
+      'has-line-numbers',
+      'line-numbers'
+    ],
     darkMode: 'class',
     theme: {
       extend: {
