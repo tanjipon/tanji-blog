@@ -1,7 +1,7 @@
 ---
 title: "Docker Training Course for the Absolute Beginner Certification"
-date: 2024-03-28T09:00:00-07:00
-lastmod: 2024-03-28T09:00:00-07:00
+date: 2025-03-28T09:00:00-07:00
+lastmod: 2025-03-28T09:00:00-07:00
 draft: false
 description: "This certification represents my commitment to modern application deployment methodologies and establishes a foundation for advanced container orchestration technologies like Kubernetes."
 issuer: "KodeKloud"
