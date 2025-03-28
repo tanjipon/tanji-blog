@@ -5,11 +5,11 @@
 @layer base {
   /* Custom base styles */
   body {
-    @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100;
+    @apply bg-white text-neutral-800 dark:bg-neutral-900 dark:text-neutral-100;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+    @apply font-bold tracking-tight text-neutral-900 dark:text-neutral-50;
   }
 
   /* Smooth transition for dark mode */
@@ -44,19 +44,19 @@
   }
 
   .btn-primary {
-    @apply bg-primary-600 text-white hover:bg-primary-700 dark:bg-primary-700 dark:hover:bg-primary-600;
+    @apply bg-primary-500 text-white hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-500;
   }
 
   .btn-secondary {
-    @apply bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600;
+    @apply bg-neutral-100 text-neutral-800 hover:bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-600;
   }
 
   .card {
-    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-colors;
+    @apply bg-white dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden transition-colors;
   }
 
   .nav-link {
-    @apply px-3 py-2 text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 font-medium transition-colors;
+    @apply px-3 py-2 text-neutral-700 hover:text-primary-500 dark:text-neutral-300 dark:hover:text-primary-400 font-medium transition-colors;
   }
 
   .nav-link-active {
@@ -65,7 +65,7 @@
 
   /* Table of contents */
   .toc {
-    @apply bg-gray-50 dark:bg-gray-800 p-4 rounded-lg my-6;
+    @apply bg-neutral-50 dark:bg-neutral-800 p-4 rounded-lg my-6;
   }
 
   .toc-list {
@@ -73,7 +73,7 @@
   }
 
   .toc-link {
-    @apply text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors;
+    @apply text-neutral-700 dark:text-neutral-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors;
   }
 
   /* Mobile-optimized components */
@@ -193,7 +193,7 @@
   .dark .code-copy-btn {
     background-color: #1f2937; /* Adjusted for dark mode */
   }
-  .dark .code-copy-btn {
+  .dark .code-copy-btn:hover {
     background-color: #374151; /* Lighter on hover for dark mode */
   }
   .dark .line-numbers {
@@ -202,19 +202,44 @@
 
   /* Sidebar widget */
   .sidebar-widget {
-    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 mb-6;
+    @apply bg-white dark:bg-neutral-800 rounded-lg shadow-md p-4 mb-6;
   }
 
   .sidebar-widget-title {
-    @apply text-lg font-bold mb-4 pb-2 border-b border-gray-200 dark:border-gray-700;
+    @apply text-lg font-bold mb-4 pb-2 border-b border-neutral-200 dark:border-neutral-700;
   }
 
   /* Mobile optimized reading view */
   .mobile-readable {
     @apply max-w-prose mx-auto px-4 sm:px-0; /* Constrained width for better reading */
   }
+
+  /* Custom UI components with the new color scheme */
+  .tag-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-300;
+  }
+
+  .category-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-secondary-100 text-secondary-800 dark:bg-secondary-900 dark:text-secondary-300;
+  }
+
+  .author-card {
+    @apply flex flex-col items-center p-6 bg-neutral-50 dark:bg-neutral-800 rounded-xl shadow-sm;
+  }
+
+  /* Feature section cards */
+  .feature-card {
+    @apply p-6 bg-white dark:bg-neutral-800 rounded-xl shadow-md border border-neutral-100 dark:border-neutral-700 hover:border-primary-200 dark:hover:border-primary-800 transition-colors;
+  }
 }
 
 @layer utilities {
   /* Custom utility styles */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500;
+  }
+  
+  .bg-gradient {
+    @apply bg-gradient-to-r from-primary-500 to-secondary-500;
+  }
 }
