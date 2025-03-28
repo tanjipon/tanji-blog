@@ -17,7 +17,7 @@ params:
   showAuthorOnPosts: true
   showBreadcrumbs: true
   showPostsOnHomepage: 6
-  showShareButtons: true
+  showShareButtons: false
   showRelatedPosts: true
   showTableOfContents: true
   
