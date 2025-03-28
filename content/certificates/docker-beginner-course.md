@@ -1,9 +1,9 @@
 ---
-title: "Docker Training Course for the Absolute Beginner"
-date: 2023-01-15T09:00:00-07:00
-lastmod: 2023-01-15T09:00:00-07:00
+title: "Docker Training Course for the Absolute Beginner Certification"
+date: 2024-03-28T09:00:00-07:00
+lastmod: 2024-03-28T09:00:00-07:00
 draft: false
-description: "Validates basic knowledge in Dcoker"
+description: "This certification represents my commitment to modern application deployment methodologies and establishes a foundation for advanced container orchestration technologies like Kubernetes."
 issuer: "KodeKloud"
 issueDate: "2024-09-01"
 certificateId: "65e5b153-67d6-446a-a796-94894ebd265e"
@@ -16,10 +16,51 @@ skills:
 weight: 10
 ---
 
-## About the Certification
+## Skills Validated
 
-Docker is an open platform for developers and sysadmins to build, ship, and run distributed applications, whether on laptops, data center VMs, or the cloud.
+This certification validates my skills in:
 
-This course introduces Docker to an Absolute Beginner using really simple and easy-to-understand lectures. Lectures are followed by demos showing how to set up and get started with Docker. The coding exercises that accompany this course will help you practice Docker commands develop your own images using Dockerfiles and practice Docker Compose. You will be developing Docker files for different use cases right in your browser. This way, you don’t really need to have your own environment set up to get some hands-on practice. The coding exercises will validate your commands and Dockerfiles and ensure you have written them correctly.
+- **Docker Core Concepts**: Understanding of containers, images, and the Docker architecture
+- **Docker CLI**: Proficiency with essential Docker commands for managing containers and images
+- **Dockerfile Creation**: Ability to write efficient Dockerfiles for application containerization
+- **Container Management**: Knowledge of container lifecycle, networking, and storage
+- **Docker Compose**: Skills in defining and running multi-container Docker applications
+- **Docker Hub**: Experience with pulling and pushing images to Docker registries
+- **Best Practices**: Understanding of Docker security and optimization techniques
 
-And finally, we have assignments to put your skills to the test. You will be given the challenge to solve using the skills you gained during this course. This is a great way to gain real-life project experience and work with the other students in the community to develop a Dockerfile and get feedback for your work. The assignment will push you to research and develop your own Docker images.
+## Course Curriculum
+
+The comprehensive curriculum covered:
+
+1. **Docker Introduction**: Container concepts and Docker ecosystem overview
+2. **Installation & Setup**: Proper Docker installation and configuration
+3. **Docker Commands**: Practical usage of Docker CLI for container management
+4. **Docker Images**: Creating, modifying, and managing Docker images
+5. **Dockerfile**: Writing effective Dockerfiles for application containerization
+6. **Docker Compose**: Orchestrating multi-container applications
+7. **Docker Hub**: Using Docker registries and repositories
+8. **Docker Networking**: Container networking concepts and implementation
+9. **Docker Volumes**: Persistent data management for containers
+10. **Docker in Production**: Best practices for deployment
+
+## Practical Experience
+
+This certification included hands-on exercises and real-world projects that required:
+
+- Building custom Docker images for various application types
+- Troubleshooting container issues and optimizing Docker configurations
+- Implementing multi-container applications with Docker Compose
+- Creating efficient Dockerfiles following best practices
+- Setting up proper networking between containers
+- Managing application data with Docker volumes
+
+## Relevance to Modern DevOps
+
+This Docker certification is particularly valuable in today's technology landscape as containerization has become a standard practice for application deployment in cloud-native environments. The skills validated by this certification are essential for:
+
+- Implementing CI/CD pipelines
+- Cloud deployment and migration
+- Microservices architecture
+- DevOps practices
+- Infrastructure as Code (IaC)
+- Platform engineering
