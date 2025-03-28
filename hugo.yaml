@@ -3,3 +3,14 @@ languageCode: en-us
 title: Tanji's Blog
 
 theme: tanji-theme
+
+# Site parameters
+params:
+  # Basic site configuration
+  description: "This blog serves as my digital garden where I document my journey through the ever-evolving landscape of software engineering."
+  author: "tanji"
+  authorBio: "Software engineer passionate about software development, cloud technologies, and open source. I share practical insights, hands-on tutorials, and lessons learned from my experiences."
+  authorImage: "/images/author.svg"
+  authorTwitter: "@yourusername"
+  defaultImage: "/images/default-cover.jpg"
+
