@@ -8,7 +8,7 @@ issuer: "KodeKloud"
 issueDate: "2024-09-01"
 certificateId: "65e5b153-67d6-446a-a796-94894ebd265e"
 featuredImage: "/images/certificates/docker-beginner-course.webp" # Example path - replace with your image path
-categories: ["Certifications"]
+categories: ["certifications"]
 tags: ["Docker", "Container"]
 skills:
   - "Docker"
