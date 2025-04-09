@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
   <!-- Background circle -->
-  <circle cx="200" cy="200" r="200" fill="#0ea5e9" />
+  <circle cx="200" cy="200" r="200" fill="#3b82f6" />
   
   <!-- Avatar outline -->
   <circle cx="200" cy="200" r="190" fill="#f0f9ff" />
@@ -10,8 +10,8 @@
   <path d="M200,0 L400,200 L200,400 L0,200 Z" fill="#0284c7" opacity="0.2" />
   
   <!-- Simplified avatar silhouette -->
-  <circle cx="200" cy="160" r="70" fill="#0284c7" />
-  <path d="M90,350 C90,280 140,250 200,250 C260,250 310,280 310,350" fill="#0284c7" />
+  <circle cx="200" cy="160" r="70" fill="#3b82f6" />
+  <path d="M90,350 C90,280 140,250 200,250 C260,250 310,280 310,350" fill="#3b82f6" />
   
   <!-- Decorative elements -->
   <circle cx="50" cy="50" r="15" fill="#0284c7" opacity="0.5" />
