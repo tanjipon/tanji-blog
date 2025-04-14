@@ -3,6 +3,10 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   {{ partial "head.html" . }}
+
+  {{ if .Param "math" }}
+    {{ partialCached "math.html" . }}
+  {{ end }}
 </head>
 <body class="flex flex-col min-h-screen transition-colors">
   {{ partial "header.html" . }}

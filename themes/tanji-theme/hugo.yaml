@@ -41,6 +41,8 @@ params:
     # facebook: "yourusername"
     # email: "you@example.com"
     website: "https://blog.tanji.io"
+  
+  math: true
 
 # Menu configuration
 menu:
@@ -94,3 +96,17 @@ markup:
     noClasses: false
     style: monokai
     tabWidth: 2
+
+  goldmark:
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+          - - \[
+            - \]
+          - - $$
+            - $$
+          inline:
+          - - \(
+            - \)
+        enable: true
