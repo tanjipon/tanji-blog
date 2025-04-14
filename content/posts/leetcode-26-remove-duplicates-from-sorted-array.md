@@ -14,7 +14,7 @@ featuredImage: "/images/posts/leetcode.jpeg"
 toc: false
 ---
 
-This post shares a solution solving "Leetcode 27. Remove Duplicates From Sorted Array" by using "two pointer" method.
+This post shares a solution solving "Leetcode 26. Remove Duplicates From Sorted Array" by using "two pointer" method.
 
 ## Problem
 [Remove Duplicates From Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
