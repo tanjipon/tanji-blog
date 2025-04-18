@@ -14,7 +14,7 @@ featuredImage: "/images/posts/leetcode.jpeg"
 toc: false
 ---
 
-This post shares a solution solving "Leetcode 27. Remove Element" by using "two pointer" method.
+This LeetCode solution tackles **"Remove Element" (Problem 27)** using the two-pointer technique in Java. The approach employs a single pass through the array with two pointers: one (\\(i\\)) that iterates through every element, and another (\\(k\\)) that tracks the position for non-matching elements. When an element doesn't match the target value, it's copied to the position indicated by \\(k\\), which then increments. The algorithm achieves an optimal \\(O(N)\\) time complexity while maintaining \\(O(1)\\) space complexity since it modifies the array in-place without requiring additional memory. This elegant solution efficiently removes all instances of the specified value and returns the new length of the modified array.
 
 ## Problem
 [Remove Element](https://leetcode.com/problems/remove-element/)
