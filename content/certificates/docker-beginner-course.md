@@ -13,13 +13,13 @@ tags: ["Docker", "Container"]
 skills:
   - "Docker"
   - "Container"
+  - "DevOps"
 weight: 10
 ---
 
 ## Skills Validated
 
 This certification validates my skills in:
-
 - **Docker Core Concepts**: Understanding of containers, images, and the Docker architecture
 - **Docker CLI**: Proficiency with essential Docker commands for managing containers and images
 - **Dockerfile Creation**: Ability to write efficient Dockerfiles for application containerization
